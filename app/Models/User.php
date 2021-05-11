@@ -50,14 +50,4 @@ class User extends Authenticatable
     {
         return $this->hasOne(Cart::class);
     }
-
-    public function orders()
-    {
-        return $this->belongsToMany(Order::class);
-    }
-
-    public function address()
-    {
-        return $this->belongsTo(Address::class);
-    }
 }
