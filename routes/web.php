@@ -19,3 +19,9 @@ Route::get('/', [MainController::class, 'index'])->name('Home');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/home', function() {
+        return view('test');
+    });
+});
