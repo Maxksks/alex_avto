@@ -14,11 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\MainController;
-Route::get('/', [MainController::class, 'index'])->name('Home');
+Route::get('/', [MainController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/main', [App\Http\Controllers\HomeController::class, 'index'])->name('main');
+
+Route::get('/store', [App\Http\Controllers\StoreController::class, 'index'])->name('store');
+
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
+
+Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('order');
+
+Route::get('/wish', [App\Http\Controllers\WhishController::class, 'index'])->name('wish');
 
 Route::middleware('role:admin')->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index']);
