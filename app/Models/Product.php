@@ -33,4 +33,9 @@ class Product extends Model
     {
         return $this->belongsToMany(WishList::class);;
     }
+
+    public function attributeSets()
+    {
+        return $this->belongsToMany(Attribute_set::class);;
+    }
 }

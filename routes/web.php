@@ -31,5 +31,5 @@ Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->na
 Route::get('/wish', [App\Http\Controllers\WhishController::class, 'index'])->name('wish');
 
 Route::middleware('role:admin')->prefix('admin_panel')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index']);
+    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('HomeAdmin');
 });
