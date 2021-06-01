@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderBy('created_at', 'desc')->get();
+
+        return view('admin.product.index', [
+            'products' => $products
+        ]);
     }
 
     /**
@@ -41,7 +46,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->name = $request->name;
+        $product->alias = $request->alias;
+        $product->in_stock = 1;
+        $product->quantity = $request->quantity;
+        $product->Categories_id = $request->Categories_id;
+        $product->description = $request->description;
+        $product->was_sold_count = 0;
+        
+        $product->save();
+        
+        $img = new Image();
+        $img->img = $request->img;
+        $img->is_main = 0;
+        $img->Products_id = $product->id;
+        
+        $img->save();
+
+        return redirect()->back()->withSuccess('Товар успешно добавлен!');
     }
 
     /**
@@ -63,7 +86,16 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::orderBy('created_at', 'desc')->get();
+        
+        $prod_id = $product->id;
+        $images = Image::where('Products_id', $prod_id)->first();
+
+        return view('admin.product.edit', [
+            'categories' => $categories,
+            'product' => $product,
+            'images' => $images
+        ]);
     }
 
     /**
@@ -75,7 +107,24 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->name = $request->name;
+        $product->alias = $request->alias;
+        $product->in_stock = 1;
+        $product->quantity = $request->quantity;
+        $product->Categories_id = $request->Categories_id;
+        $product->description = $request->description;
+        $product->was_sold_count = 0;
+        
+        $product->save();
+        
+        $img = Image::where('Products_id', $product->id)->get();
+        $img->img = $request->img;
+        $img->is_main = 0;
+        $img->Products_id = $product->id;
+        
+        $img->save();
+
+        return redirect()->back()->withSuccess('Товар успешно обновлен!');
     }
 
     /**
@@ -86,6 +135,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $img = Image::where('Products_id', $product->id);
+        $img->delete();
+        $product->delete();
+
+        return redirect()->back()->withSuccess('Товар успешно удален!');
     }
 }

@@ -23,8 +23,9 @@
   <link rel="stylesheet" href="/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="/admin/plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="/admin/plugins/summernote/summernote-bs4.min.css">
+
+  <link href="/admin/dist/css/colorbox.css" rel="stylesheet">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -125,13 +126,6 @@
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -177,5 +171,12 @@
 <script src="/admin/dist/js/pages/dashboard.js"></script>
 
 <script src="/admin/admin.js"></script>
+
+<script src="https://cdn.tiny.cloud/1/7ljrf2tsnkruldyxcdc4uwj1vp9mrcqf9v7q0z0q4od6wbwf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script type="text/javascript" src="/admin/dist/js/jquery.colorbox-min.js"></script>
+
+<script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
+
 </body>
 </html>

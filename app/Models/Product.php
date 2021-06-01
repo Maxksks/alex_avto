@@ -11,7 +11,7 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'Categories_id');
     }
 
     public function images()
@@ -21,7 +21,7 @@ class Product extends Model
 
     public function priceHistory()
     {
-        return $this->belongsTo(PriceHistory::class);
+        return $this->hasOne(PriceHistory::class);
     }
 
     public function carts()

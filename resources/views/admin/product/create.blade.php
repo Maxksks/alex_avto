@@ -30,7 +30,7 @@
                 <div class="col-lg-12">
                     <div class="card card-primary">
                         <!-- form start -->
-                        <form action="{{ route('category.store') }}" method="POST">
+                        <form action="{{ route('product.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -46,24 +46,31 @@
                                     <input type="text" name="quantity" class="form-control" id="quantityInput" placeholder="Введите колличество товара" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="wasSoldInput">Колличество проданного товара</label>
-                                    <input type="text" name="wasSold" class="form-control" id="wasSoldInput" placeholder="Введите колличество проданного товара товара" required>
-                                </div>
-                                <div class="form-group">
                                     <label>Описание</label>
-                                    <textarea class="form-control" rows="3" placeholder="Описание ..."></textarea>
+                                    <textarea name="description" class="form-control" rows="3" placeholder="Описание ..."></textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-6">
                                         <!-- select -->
                                         <div class="form-group">
                                             <label>Выберите категорию</label>
-                                            <select name="Categories_id" class="form-control">
+                                            <select name="Categories_id" class="form-control" required>
                                                 @foreach ($categories as $category)
                                                     <option value="{{$category['id']}}">{{$category['name']}}</option>  
                                                 @endforeach
                                             </select>
                                         </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="form-group">
+                                    <textarea name="description" class="editor"></textarea>
+                                </div> --}}
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label for="feature_image">Изображения товара</label>
+                                        <img src="" alt="" class="img-uploaded" style="display: block; width: 250px;">
+                                        <input type="text" name="img" class="form-control" id="feature_image" name="feature_image" value="" readonly>
+                                        <a href="" class="popup_selector" data-inputid="feature_image">Загрузить</a>
                                     </div>
                                 </div>
                             </div>
