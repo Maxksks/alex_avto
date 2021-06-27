@@ -9,14 +9,17 @@
         <div class="col-md-1">
         </div>
         <div class="col-md-3">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/img/test.jpg" alt="/img/test.jpg">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/img/tire3.png" alt="/img/test.jpg">
         </div>
         <div class="col-md-7">
             <div class="row">
-                <h5>Название Продукта</h5>
+                <h5>Bridgestone Potenza Sport</h5>
             </div>
             <div class="row">
-                <h5><p class="text-muted">Lorem ipsum — классический текст-«рыба». Является искажённым отрывком из философского трактата Марка Туллия Цицерона «О пределах добра и зла», написанного в 45 году до н. э. на латинском языке, обнаружение сходства приписывается Ричарду МакКлинтоку</p></h5>
+                <h4>7099 руб.</h4>
+            </div>
+            <div class="row">
+                <h5><p class="text-muted">С недавних пор летняя шина Bridgestone Potenza Sport является флагманской моделью покрышек для легковых автомобилей. Логичным будет предположить, что речь идет об их наиболее динамичных версиях, а также спорткарах. Покрышка входит в комплектацию BMW 8-Series, Maserati MC20 и Lamborghini Huracan STO. При разработке применялись решения, которые ранее использовались в шинах для шоссейно-кольцевых гонок и зарекомендовали себя с самой лучшей стороны.</p></h5>
             </div>
             <div class="row">
                 <div class="col-md-2">

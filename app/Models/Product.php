@@ -26,16 +26,16 @@ class Product extends Model
 
     public function carts()
     {
-        return $this->belongsToMany(Cart::class);;
+        return $this->belongsToMany(Cart::class);
     }
 
     public function wishLists()
     {
-        return $this->belongsToMany(WishList::class);;
+        return $this->belongsToMany(WishList::class);
     }
 
     public function attributeSets()
     {
-        return $this->belongsToMany(Attribute_set::class);;
+        return $this->hasMany(Attribute_set::class);
     }
 }

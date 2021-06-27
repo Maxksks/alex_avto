@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-2">
-                            <h4>Избранное</h4>
+                            <h4>Кабинет</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -22,17 +22,15 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Наименование</th>
+                                        <th scope="col">Статус</th>
                                         <th scope="col">Цена</th>
-                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Bridgestone Potenza Sport</td>
+                                        <td>В доставке</td>
                                         <td>7099</td>
-                                        <td><img src="https://img.icons8.com/fluent/30/000000/delete-sign.png"/></td>
                                     </tr>
                                 </tbody>
                             </table>

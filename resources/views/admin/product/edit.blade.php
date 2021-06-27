@@ -30,7 +30,7 @@
                 <div class="col-lg-12">
                     <div class="card card-primary">
                         <!-- form start -->
-                        <form action="{{ route('product.update', $product['id']) }}" method="POST">
+                        <form action="{{ route('product.update', $product['id'], $attributes) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
@@ -50,30 +50,47 @@
                                     <label>Описание</label>
                                     <textarea name="description" class="form-control" rows="3" placeholder="Описание ...">{{$product['description']}}</textarea>
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- select -->
                                         <div class="form-group">
-                                            <label>Выберите категорию</label>
-                                            <select name="Categories_id" class="form-control" required>
-                                                @foreach ($categories as $category)
-                                                    <option value="{{$category['id']}}" @if ($category['id'] == $product['Categories_id'])
-                                                        selected
-                                                    @endif>{{$category['name']}}</option>  
-                                                @endforeach
-                                            </select>
+                                            <!-- select -->
+                                            <div class="form-group">
+                                                <label>Выберите категорию</label>
+                                                <select name="Categories_id" class="form-control" required>
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{$category['id']}}" @if ($category['id'] == $product['Categories_id'])
+                                                            selected
+                                                        @endif>{{$category['name']}}</option>  
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="feature_image">Изображения товара</label>
+                                            <img src="{{$images['img']}}" alt="" class="img-uploaded" style="display: block; width: 250px;">
+                                            <input type="text" value="{{$images['img']}}" name="img" class="form-control" id="feature_image" name="feature_image" value="" readonly>
+                                            <a href="" class="popup_selector" data-inputid="feature_image">Загрузить</a>
                                         </div>
                                     </div>
-                                </div>
-                                {{-- <div class="form-group">
-                                    <textarea name="description" class="editor"></textarea>
-                                </div> --}}
-                                <div class="form-group">
                                     <div class="col-sm-6">
-                                        <label for="feature_image">Изображения товара</label>
-                                        <img src="{{$images['img']}}" alt="" class="img-uploaded" style="display: block; width: 250px;">
-                                        <input type="text" value="{{$images['img']}}" name="img" class="form-control" id="feature_image" name="feature_image" value="" readonly>
-                                        <a href="" class="popup_selector" data-inputid="feature_image">Загрузить</a>
+                                        <div class="form-group">
+                                            <label>Выберите характеристику</label>
+                                            <select name="Attribute_id" id="Attribute_id" class="form-control" required>
+                                                @foreach ($attributes as $attribute)
+                                                    <option value="{{$attribute['value']}}">{{$attribute['attribute_name']}}</option>
+                                                @endforeach    
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Значение</label>
+                                            <input type="text" value="" name="value" class="form-control" id="valueInput" required>
+                                            <script>
+                                                document.getElementById('Attribute_id').addEventListener('change', function getVal() {
+                                                    const val = this.value;
+                                                    $("#valueInput").val(val);
+                                                });
+                                            </script>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

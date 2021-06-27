@@ -75,6 +75,7 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
+                            
           
                           <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Добавить</button>

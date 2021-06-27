@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attribute_set;
+use App\Models\Attribute_set_value;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
@@ -64,7 +66,9 @@ class ProductController extends Controller
         
         $img->save();
 
-        return redirect()->back()->withSuccess('Товар успешно добавлен!');
+        return view('admin.product.attributes', [
+            'prod' => $product
+        ]);//back()->withSuccess('Товар успешно добавлен!');
     }
 
     /**
@@ -86,15 +90,17 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $categories = Category::orderBy('created_at', 'desc')->get();
-        
         $prod_id = $product->id;
+        
+        $categories = Category::orderBy('created_at', 'desc')->get();
         $images = Image::where('Products_id', $prod_id)->first();
+        $attributes = Attribute_set::where('Products_id', $prod_id)->get();  
 
         return view('admin.product.edit', [
             'categories' => $categories,
             'product' => $product,
-            'images' => $images
+            'images' => $images,
+            'attributes' => $attributes
         ]);
     }
 
@@ -123,6 +129,14 @@ class ProductController extends Controller
         $img->Products_id = $product->id;
         
         $img->save();
+
+        //TODO: доделать аттрибуты получиения и сохранить их
+
+        // foreach($attributes as $attribute)
+        // {
+        //     $attribute = Attribute_set::where('Products_id', $product->id)->get();
+        // }
+        // $attribute = Attribute_set::where('Products_id', $product->id)->get();
 
         return redirect()->back()->withSuccess('Товар успешно обновлен!');
     }

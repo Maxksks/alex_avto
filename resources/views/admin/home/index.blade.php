@@ -55,5 +55,21 @@
           
         </div><!-- /.container-fluid -->
       </section>
+      <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Статус</th>
+                <th scope="col">Цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>В доставке</td>
+                <td>7099</td>
+            </tr>
+        </tbody>
+    </table>
       <!-- /.content -->
 @endsection

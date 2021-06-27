@@ -18,7 +18,7 @@
                     <li><a href="{{route('home')}}" class="nav-link px-2 text-secondary">Главная</a></li>
                     <li><a href="{{route('cart')}}" class="nav-link px-2 text-white">Корзина</a></li>
                     <li><a href="{{route('wish')}}" class="nav-link px-2 text-white">Избранное</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Гараж</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Кабинет</a></li>
                 </ul>
         
                 <form class="col-12 col-lg-5 mb-3 mb-lg-0 me-lg-auto">

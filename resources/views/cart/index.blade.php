@@ -31,14 +31,16 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Хуйня под капот</td>
-                                        <td>2</td>
-                                        <td>500</td>
+                                        <td>Bridgestone Potenza Sport</td>
+                                        <td>
+                                            <input type="text" class="form-control" placeholder="1">
+                                        </td>
+                                        <td>7099</td>
                                         <td><img src="https://img.icons8.com/fluent/30/000000/delete-sign.png"/></td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">Итого:</td>
-                                        <td>555</td>
+                                        <td>7099</td>
                                         <td></td>
                                     </tr>
                                 </tbody>
@@ -51,6 +53,7 @@
                         <div class="col-md-3">
                         </div>
                         <div class="col-md-3">
+                            <button type="button" class="btn btn-dark">Оплата</button>
                         </div>
                         <div class="col-md-3">
                             <button type="button" class="btn btn-outline-dark">Продолжить оформление</button>

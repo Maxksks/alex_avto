@@ -9,13 +9,8 @@ class Attribute_set extends Model
 {
     use HasFactory;
 
-    public function value()
+    public function product()
     {
-        return $this->hasOne(Attribute_sets_value::class);
-    }
-
-    public function products()
-    {
-        return $this->hasMany(Product::class);;
+        return $this->belongsTo(Product::class);;
     }
 }

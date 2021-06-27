@@ -32,9 +32,18 @@ Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->na
 
 Route::get('/wish', [App\Http\Controllers\WhishController::class, 'index'])->name('wish');
 
+Route::get('/pay', [App\Http\Controllers\PayController::class, 'index'])->name('pay');
+
+Route::get('/cabinet', [App\Http\Controllers\CabinetController::class, 'index'])->name('cabinet');
+
 Route::middleware('role:admin')->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('HomeAdmin');
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+
+    Route::get('/product/create/{prod}/attributes', [App\Http\Controllers\admin\AttributeController::class, 'index'])
+        ->name('attribute_add');
+    Route::post('/product/create/{prod}/attributes', [App\Http\Controllers\admin\AttributeController::class, 'add'])
+        ->name('attributes');
 });
